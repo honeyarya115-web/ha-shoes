@@ -1,15 +1,16 @@
 body {
   font-family: Arial;
   margin: 0;
-  background: #f3f3f3;
+  background: #111;
+  color: white;
 }
 
+/* HEADER */
 header {
-  background: black;
-  color: white;
-  padding: 15px;
   display: flex;
   justify-content: space-between;
+  padding: 15px;
+  background: black;
 }
 
 nav a {
@@ -18,41 +19,59 @@ nav a {
   text-decoration: none;
 }
 
+/* BACK BUTTON */
+.back-btn {
+  color: white;
+  text-decoration: none;
+}
+
+/* PRODUCTS */
 .products {
   display: flex;
   justify-content: center;
-  gap: 30px;
-  margin: 40px;
+  gap: 40px;
+  margin: 50px;
 }
 
+/* CARD */
 .card {
-  background: white;
+  background: #1c1c1c;
   padding: 20px;
-  border-radius: 12px;
-  width: 250px;
+  border-radius: 15px;
+  width: 260px;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
 }
 
 .card img {
   width: 100%;
+  border-radius: 10px;
 }
 
+/* BUTTON */
 button {
-  background: black;
-  color: white;
+  background: white;
+  color: black;
   border: none;
   padding: 10px;
-  cursor: pointer;
   margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
-button:hover {
-  background: gray;
+/* LOGIN */
+.login-box {
+  text-align: center;
+  margin-top: 50px;
 }
 
 input {
   display: block;
-  margin: 10px;
+  margin: 10px auto;
   padding: 10px;
+  width: 200px;
 }
