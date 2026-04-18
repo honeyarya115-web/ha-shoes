@@ -11,10 +11,15 @@
   <h1>HA Shoes</h1>
   <nav>
     <a href="index.html">Home</a>
-    <a href="cart.html">Cart 🛒</a>
+    <a href="cart.html">Cart 🛒 (<span id="count">0</span>)</a>
     <a href="login.html">Login</a>
   </nav>
 </header>
+
+<section class="hero">
+  <h2>Step Into Style</h2>
+  <p>Premium Sneakers Collection</p>
+</section>
 
 <section class="products">
 
@@ -22,14 +27,20 @@
     <img src="images/shoe1.png">
     <h2>Black Runner</h2>
     <p>₹2999</p>
-    <button onclick="addToCart('Black Runner',2999)">Add</button>
+    <div class="btns">
+      <button onclick="addToCart('Black Runner',2999)">Add</button>
+      <button onclick="addToWishlist('Black Runner')">❤️</button>
+    </div>
   </div>
 
   <div class="card">
     <img src="images/shoe2.png">
     <h2>White Classic</h2>
     <p>₹2499</p>
-    <button onclick="addToCart('White Classic',2499)">Add</button>
+    <div class="btns">
+      <button onclick="addToCart('White Classic',2499)">Add</button>
+      <button onclick="addToWishlist('White Classic')">❤️</button>
+    </div>
   </div>
 
 </section>

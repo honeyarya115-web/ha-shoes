@@ -1,33 +1,40 @@
+// CART COUNT
+function updateCount() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let count = document.getElementById("count");
+  if (count) count.innerText = cart.length;
+}
+updateCount();
+
 // ADD TO CART
 function addToCart(name, price) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   cart.push({name, price});
   localStorage.setItem("cart", JSON.stringify(cart));
+  updateCount();
   alert("Added!");
 }
 
 // SHOW CART
-if (document.getElementById("cart")) {
+if (document.getElementById("cartContainer")) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let container = document.getElementById("cartContainer");
   let total = 0;
-  let cartList = document.getElementById("cart");
 
   cart.forEach((item, index) => {
-    let li = document.createElement("li");
-
-    li.innerHTML = `
-      ${item.name} - ₹${item.price}
+    let div = document.createElement("div");
+    div.innerHTML = `
+      <p>${item.name} - ₹${item.price}</p>
       <button onclick="removeItem(${index})">Remove</button>
     `;
-
-    cartList.appendChild(li);
+    container.appendChild(div);
     total += item.price;
   });
 
   document.getElementById("total").innerText = "Total: ₹" + total;
 }
 
-// REMOVE ITEM
+// REMOVE
 function removeItem(index) {
   let cart = JSON.parse(localStorage.getItem("cart"));
   cart.splice(index, 1);
@@ -37,31 +44,30 @@ function removeItem(index) {
 
 // CHECKOUT
 function checkout() {
-  alert("Payment Successful ✅");
+  alert("Payment Done ✅ (Demo)");
   localStorage.removeItem("cart");
   window.location.href = "index.html";
 }
 
-// SIGNUP
+// LOGIN SYSTEM
 function signup() {
-  let user = username.value;
-  let pass = password.value;
-
-  localStorage.setItem("user", user);
-  localStorage.setItem("pass", pass);
-
-  message.innerText = "Signup Done!";
+  localStorage.setItem("user", username.value);
+  localStorage.setItem("pass", password.value);
+  msg.innerText = "Signup success!";
 }
 
-// LOGIN
 function login() {
-  let user = username.value;
-  let pass = password.value;
-
-  if (user === localStorage.getItem("user") &&
-      pass === localStorage.getItem("pass")) {
-    message.innerText = "Login Success!";
+  if (
+    username.value === localStorage.getItem("user") &&
+    password.value === localStorage.getItem("pass")
+  ) {
+    msg.innerText = "Login success!";
   } else {
-    message.innerText = "Wrong!";
+    msg.innerText = "Wrong!";
   }
+}
+
+// WISHLIST
+function addToWishlist(item) {
+  alert(item + " added to ❤️ wishlist");
 }
