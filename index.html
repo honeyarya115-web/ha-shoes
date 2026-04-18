@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HA Shoes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>HA Shoes</h1>
+  <p>Premium Sneakers Collection</p>
+</header>
+
+<section class="products">
+
+  <div class="card">
+    <img src="images/shoe1.png" alt="Black Shoe">
+    <h2>Black Runner</h2>
+    <p>₹2999</p>
+    <button onclick="addToCart('Black Runner')">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="images/shoe2.png" alt="White Shoe">
+    <h2>White Classic</h2>
+    <p>₹2499</p>
+    <button onclick="addToCart('White Classic')">Add to Cart</button>
+  </div>
+
+</section>
+
+<h2 style="text-align:center;">🛒 Cart</h2>
+<ul id="cart"></ul>
+
+<script src="script.js"></script>
+</body>
+</html>
