@@ -1,6 +1,45 @@
 /* FADE-IN PAGE LOAD */
 body {
-  animation: fadeIn 1s ease-in;
+  margin: 0;
+  font-family: Arial;
+  color: white;
+
+  background: radial-gradient(circle at top, #1a1a1a, #000000);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: -100px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  background: rgba(255,255,255,0.05);
+  filter: blur(120px);
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  bottom: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: rgba(255,255,255,0.03);
+  filter: blur(120px);
+  z-index: -1;
+}
+
+body {
+  animation: bgMove 10s infinite alternate;
+}
+
+@keyframes bgMove {
+  0% { background-position: left; }
+  100% { background-position: right; }
 }
 
 @keyframes fadeIn {
@@ -9,8 +48,17 @@ body {
 }
 
 /* HERO ANIMATION */
-.hero h2 {
-  animation: slideDown 1s ease;
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.05),
+    rgba(0,0,0,0.6)
+  );
+
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 @keyframes slideDown {
@@ -20,9 +68,10 @@ body {
 
 /* CARD ANIMATION */
 .card {
-  transition: 0.4s ease;
-  position: relative;
-  overflow: hidden;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
 .card:hover {
